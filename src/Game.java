@@ -1,8 +1,11 @@
 import java.util.Scanner;
 
+import static java.lang.Integer.parseInt;
+
 public class Game {
 
     public static Scanner input = new Scanner(System.in);
+    public static String tableBorder = "+===============+";
 
     public static void setTimeout(Runnable runnable, int delay) {
         new Thread(() -> {
@@ -31,6 +34,24 @@ public class Game {
         }
     }
 
+    public static String diceRoll(int num1){
+            int die1 = (int) Math.floor(Math.random()* num1)+1;
+            int die2 = (int) Math.floor(Math.random()* num1)+1;
+            int die3 = (int) Math.floor(Math.random()* num1)+1;
+            int die4 = (int) Math.floor(Math.random()* num1)+1;
+            int die5 = (int) Math.floor(Math.random()* num1)+1;
+            int die6 = (int) Math.floor(Math.random()* num1)+1;
+            int total = die1 + die2;
+            return "*Throws dice*\n" + tableBorder + "\n| Defense | " + die1 + "  |\n| Health  | " + die2 + " |\n| Mana    | " + die3 + " |";
+//                    +===============+
+//                    | Defense | num |
+//                    | Health  | num |
+//                    | Mana    | num |
+//                    | Attack  | num |
+//                    | Speed   | num |
+//                    | Stealth | num |
+//                    +===============+
+        }
 
 
         public static void main (String[]args){
@@ -47,7 +68,7 @@ public class Game {
 //        Run? (ends the game)
 //        Keep asking for user input until the enemyHealth reaches 0, then end the game.
 
-            boolean isReady;
+            boolean isReady;// for the do loop below
 
             do {
                 System.out.println("Welcome to our game!\n Are you ready to begin? [y/n]");
@@ -61,9 +82,25 @@ public class Game {
             createChar();
 
             System.out.println("Lets roll for your stats!");
-            setTimeout(() -> System.out.println("test"), 5000);
+            setTimeout(() -> System.out.print(diceRoll(20)), 3000);
             //dice function for stats
             //table showing stats
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             //Bonuses
